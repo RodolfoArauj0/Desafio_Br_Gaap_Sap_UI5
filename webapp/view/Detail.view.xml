@@ -1,0 +1,48 @@
+<mvc:View
+	controllerName="sap.ui.demo.walkthrough.controller.Detail"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true">
+	<Page
+		title="{i18n>detailPageTitle}"
+		showNavButton="true"
+		navButtonPress=".onNavBack"
+		>		
+			<Table
+			class="sapUiResponsiveMargin"
+			
+			>
+				<columns >
+					<Column >
+						<Text text="Id"/>
+					</Column>
+					<Column >
+						<Text text="Título"/>
+					</Column>
+					<Column >
+						<Text text="UserId"/>
+					</Column>
+					<Column >
+						<Text text="Completado"/>
+					</Column>
+					
+				</columns>
+			<items class="{=${invoice>completed} ? 'red' : 'green'}">	
+				<ColumnListItem >
+					<ObjectListItem
+					intro="{invoice>id}"
+						/>
+						<ObjectListItem
+						intro="{invoice>title}"
+							/>
+							<ObjectListItem
+						intro="{invoice>userId}"
+							/>
+							<ObjectListItem
+						intro="{=${invoice>completed} ? 'Completado' : 'Não Completado'}"
+						/>
+				</ColumnListItem>				
+			</items>
+			</Table>
+	</Page>
+</mvc:View>
